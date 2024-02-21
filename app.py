@@ -26,6 +26,7 @@ app.layout = dbc.Container([
             dcc.Dropdown(
                 id='pdf-dropdown',
                 options=[{'label': pdf, 'value': os.path.join(PDF_DIR, pdf)} for pdf in pdf_files],
+                value=os.path.join(PDF_DIR, pdf_files[0]) if pdf_files else None,  # Set initial value to first PDF
                 style={'color': 'black'},  # For visibility in the dropdown
             ),
             html.Div(id='pdf-display', className='mt-4')
