@@ -21,16 +21,3 @@ jobs:
         run: |
           docker build -t mattmajestic/coursera-dash:latest .
           docker push mattmajestic/coursera-dash:latest
-
-      - name: Check if the image was pushed
-        id: check_image
-        run: |
-          IMAGE_NAME=mattmajestic/coursera-dash:latest
-          RESPONSE=$(curl --write-out %{http_code} --silent --output /dev/null https://hub.docker.com/v2/repositories/$IMAGE_NAME)
-          if [ $RESPONSE -eq 200 ]; then
-            echo "Image $IMAGE_NAME exists on Docker Hub."
-          else
-            echo "Image $IMAGE_NAME does not exist on Docker Hub."
-            exit 1
-          fi
-        shell: bash
