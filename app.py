@@ -13,6 +13,7 @@ PDF_DIR = 'assets/coursera'
 pdf_files = [f for f in os.listdir(PDF_DIR) if f.endswith('.pdf')]
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.CYBORG])
+app.title = 'Coursera Dash'
 
 app.layout = dbc.Container([
     dbc.Row([
